@@ -21,7 +21,7 @@ namespace Wumpus
         }
 
         // Constructers
-        public int HighScore(int turns, int coins, int arrows, Boolean wumpus)
+        public void HighScore(int turns, int coins, int arrows, Boolean wumpus)
         {
             int highScore = 0;
             if(wumpus == true)
@@ -32,12 +32,7 @@ namespace Wumpus
             {
                 highScore = 100 - turns + coins + (5 * arrows);
             }
-            /*
-             * Get stats from Player object.
-             * Keep track of the high score. 
-             * pass is to the HighScore object.
-             */
-            return highScore;
+            Ui.DisplayHS(highScore);
         } 
 
         public bool GameState()
@@ -49,7 +44,7 @@ namespace Wumpus
             return true;
         }
 
-        public int MovePlayer(int room)
+        public void MovePlayer(int room)
         {
             /*
              * Get the room that the player
@@ -60,7 +55,7 @@ namespace Wumpus
              * Returns the room the player wants
              * to go to. 
              */
-            return 0;
+            GameLocations.movePlayer(room);
         }
 
         public void input()
